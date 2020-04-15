@@ -1,0 +1,4 @@
+GIMP 2.10.18 Python Console
+Python 2.7.17 (default, Oct 23 2019, 05:20:31)  [GCC 9.2.0 64 bit (AMD64)]
+>>> name = pdb.gimp_context_get_mypaint_brush()
+>>> 

@@ -1,0 +1,6 @@
+imagimage = gimp.Image(1000, 800, "jpg")
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+TypeError: an integer is required
+>>> image = gimp.Image(1000, 800, RGB)
+>>> 

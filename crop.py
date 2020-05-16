@@ -5,7 +5,7 @@ from gimpfu import *
 # def crop_down():
 #     print("potato")
 
-def crop_down(orig_image, drawable, num):
+def crop_down(orig_image, drawable, image_name):
     sizes = [[5,7],[8,10],[11,14]]
     non_empty, x1, y1, x2, y2 = pdb.gimp_selection_bounds(orig_image)
     i = 0
@@ -45,18 +45,30 @@ def crop_down(orig_image, drawable, num):
             i += 1
     x = "x"
 
-
+# firstImage = gimp.image_list()[0]
+# imageName = pdb.gimp_image_get_name(firstImage)
+imageName = "george"
+saveLocation = "C:\\Users\\mathu\\Google Drive\\Art\\python-fu\\"
 register(
     "python_fu_crop",
-    "Create new layer from selection and auto crop layer",
-    "Create new layer from selection and auto crop layer",
-    "https://github.com/fre-sch",
-    "https://github.com/fre-sch",
+    "Make multiple cropped copies",
+    "Make multiple cropped copies ",
+    "https://github.com/math-yew",
+    "https://github.com/math-yew",
     "2016",
     "<Image>/Filters/Test/CropDown",
     "RGB*, GRAY*",
     [
-    (PF_INT, "layer_name", "Number of layers", ""),
+    (PF_STRING, "image_name", "Image Name", imageName),
+    (PF_RADIO, "orient", "Orientation: ", LANDSCAPE,
+            (
+                 ("Portrait", Portrait),
+                 ( "Landscape", LANDSCAPE)
+            )
+         ),
+    (PF_TOGGLE,  "y_center",    "Center Vertically:", FALSE),
+    # (PF_STRING, "save_location", "Save Location", saveLocation),
+    (PF_FILE, "pf_afile", _("Choose File:"), "/home/jbaker")
     ],
     [],
     crop_down
